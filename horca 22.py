@@ -118,3 +118,4 @@ root_inicio.geometry("300x200")
 tk.Label(root_inicio, text="BIENVENIDO A EPIC MUNDO", font=("Arial", 12, "bold")).pack(pady=30)
 tk.Button(root_inicio, text="INICIAR JUEGO", command=lanzar_juego, bg="#FF5722", fg="white").pack()
 root_inicio.mainloop()
+
