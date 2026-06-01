@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epic Mundo Ahorcado</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; background: #2c3e50; color: white; }
+        #palabra { font-size: 30px; margin: 20px; }
+        button { margin: 5px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Epic Mundo Ahorcado</h1>
+    <div id="palabra">_ _ _ _ _</div>
+    <div id="teclado"></div>
+    
+    <script>
+        const palabras = ["PYTHON", "HONDURAS", "TECLADO"];
+        let palabra = palabras[Math.floor(Math.random() * palabras.length)];
+        let adivinadas = Array(palabra.length).fill("_");
+        
+        document.getElementById("palabra").innerText = adivinadas.join(" ");
+
+        const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        const teclado = document.getElementById("teclado");
+        
+        for(let letra of letras) {
+            let btn = document.createElement("button");
+            btn.innerText = letra;
+            btn.onclick = function() {
+                if(palabra.includes(letra)) {
+                    for(let i=0; i<palabra.length; i++) {
+                        if(palabra[i] === letra) adivinadas[i] = letra;
+                    }
+                    document.getElementById("palabra").innerText = adivinadas.join(" ");
+                }
+            };
+            teclado.appendChild(btn);
+        }
+    </script>
+</body>
